@@ -14,12 +14,12 @@ struct MainView: View {
         NavigationView {
             List(viewModel.transactions, id: \.id) { txn in
                 NavigationLink {
-                    DetailView()
+                    DetailView(txn: txn, viewModel: viewModel)
                 } label: {
                     ListRowView(txn: txn)
                 }
             }
-            .navigationTitle("Transactions")
+            .navigationTitle(viewModel.s_NavTitle)
             .onAppear {
                 viewModel.onAppear()
             }

@@ -20,6 +20,15 @@ import Foundation
         getData()
     }
     
+    // MARK: - Strings
+    let s_NavTitle = "Transactions"
+    let s_ID = "ID"
+    let s_Summary = "Summary"
+    let s_TxnDate = "Transaction Date"
+    let s_Amount = "Amount"
+    let s_Credit = "Credit"
+    let s_Debit = "Debit"
+    
     // MARK: - Private properties & functions
     private let url = URL(string: "https://gist.githubusercontent.com/Josh-Ng/500f2716604dc1e8e2a3c6d31ad01830/raw/4d73acaa7caa1167676445c922835554c5572e82/test-data.json")!
     
