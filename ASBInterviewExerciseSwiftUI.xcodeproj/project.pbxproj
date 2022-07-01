@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE25EFF9286EFCE400A88B12 /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25EFF8286EFCE400A88B12 /* TransactionDetail.swift */; };
 		CE2762E6286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2762E5286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift */; };
 		CE2762EA286EF14E0076E94B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2762E9286EF14E0076E94B /* Assets.xcassets */; };
 		CE2762ED286EF14E0076E94B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2762EC286EF14E0076E94B /* Preview Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE25EFF8286EFCE400A88B12 /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
 		CE2762E2286EF14C0076E94B /* ASBInterviewExerciseSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASBInterviewExerciseSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2762E5286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASBInterviewExerciseSwiftUIApp.swift; sourceTree = "<group>"; };
 		CE2762E9286EF14E0076E94B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				CE276319286EF2080076E94B /* Transaction.swift */,
+				CE25EFF8286EFCE400A88B12 /* TransactionDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				CE276310286EF1920076E94B /* MainView.swift in Sources */,
 				CE27631A286EF2080076E94B /* Transaction.swift in Sources */,
 				CE2762E6286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift in Sources */,
+				CE25EFF9286EFCE400A88B12 /* TransactionDetail.swift in Sources */,
 				CE276314286EF1AE0076E94B /* DetailView.swift in Sources */,
 				CE276316286EF1C10076E94B /* ViewModel.swift in Sources */,
 				CE276318286EF1EB0076E94B /* RestClient.swift in Sources */,

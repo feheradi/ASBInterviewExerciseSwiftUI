@@ -26,15 +26,18 @@ struct DetailView: View {
             }
                         
             Section(viewModel.s_Amount) {
+                let details = viewModel.getDetails(for: txn)
+                
                 HStack {
-                    Text(viewModel.s_Credit)
+                    Text(details.type)
                     Spacer()
-                    Text("\(txn.credit)")
-                }
+                    Text("\(details.amount, specifier: "%.2f")")
+                }.foregroundColor(details.color)
+                
                 HStack {
-                    Text(viewModel.s_Debit)
+                    Text(viewModel.s_GST)
                     Spacer()
-                    Text("\(txn.debit)")
+                    Text("\(details.gst, specifier: "%.2f")")
                 }
             }
         }

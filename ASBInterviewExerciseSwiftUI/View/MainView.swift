@@ -16,7 +16,7 @@ struct MainView: View {
                 NavigationLink {
                     DetailView(txn: txn, viewModel: viewModel)
                 } label: {
-                    ListRowView(txn: txn)
+                    ListRowView(txn: txn, viewModel: viewModel)
                 }
             }
             .navigationTitle(viewModel.s_NavTitle)

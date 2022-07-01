@@ -20,12 +20,19 @@ import Foundation
         getData()
     }
     
+    func getDetails(for txn: Transaction) -> TransactionDetail {        
+        let credit = TransactionDetail(amount: txn.credit, gst: txn.credit * 0.15, type: s_Credit, color: .green)
+        let debit = TransactionDetail(amount: txn.debit, gst: txn.debit * 0.15, type: s_Debit, color: .red)
+        return txn.debit != 0 ? debit : credit
+    }
+    
     // MARK: - Strings
     let s_NavTitle = "Transactions"
     let s_ID = "ID"
     let s_Summary = "Summary"
     let s_TxnDate = "Transaction Date"
     let s_Amount = "Amount"
+    let s_GST = "GST (15%)"
     let s_Credit = "Credit"
     let s_Debit = "Debit"
     

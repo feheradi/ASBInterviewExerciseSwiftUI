@@ -9,14 +9,17 @@ import SwiftUI
 
 struct ListRowView: View {
     let txn: Transaction
+    let viewModel: ViewModel
     
     var body: some View {
+        let details = viewModel.getDetails(for: txn)
+        
         VStack {
             Text(txn.summary)
             HStack {
                 Text(txn.transactionDate)
-                Text("\(txn.credit)").foregroundColor(.green)
-                Text("\(txn.debit)").foregroundColor(.red)
+                Text("\(details.amount, specifier: "%.2f")")
+                    .foregroundColor(details.color)
             }
         }
     }
