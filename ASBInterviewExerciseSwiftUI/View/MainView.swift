@@ -29,6 +29,7 @@ struct MainView: View {
             .navigationTitle(viewModel.s_NavTitle)
             .onAppear {
                 viewModel.onAppear()
+                setBackgroudColor()
             }
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text(viewModel.s_Error_Title), message: Text(viewModel.alertMessage))
@@ -37,5 +38,10 @@ struct MainView: View {
                 viewModel.refresh()
             }
         }
+    }
+    
+    private func setBackgroudColor() {
+        UINavigationBar.appearance().barTintColor = UIColor(named: "BgColor")
+        UITableView.appearance().backgroundColor = UIColor(named: "BgColor")
     }
 }
