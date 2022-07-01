@@ -21,8 +21,15 @@ struct DetailView: View {
                 Text(txn.summary)
             }
             
-            Section(viewModel.s_TxnDate) {
-                Text(txn.transactionDate)
+            Section {
+                Text(viewModel.formatDate(for: txn.transactionDate, dateFormat: .long))
+            } header: {
+                Text(viewModel.s_TxnDate)
+            } footer: {
+                HStack {
+                    Spacer()
+                    Text(viewModel.s_NZTime)
+                }
             }
                         
             Section(viewModel.s_Amount) {

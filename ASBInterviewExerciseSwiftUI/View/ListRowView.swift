@@ -13,14 +13,13 @@ struct ListRowView: View {
     
     var body: some View {
         let details = viewModel.getDetails(for: txn)
+        let txnTime = viewModel.formatDate(for: txn.transactionDate, dateFormat: .justTime)
         
-        VStack {
+        HStack {
+            Text(txnTime)
             Text(txn.summary)
-            HStack {
-                Text(txn.transactionDate)
-                Text("\(details.amount, specifier: "%.2f")")
-                    .foregroundColor(details.color)
-            }
+            Text("\(details.amount, specifier: "%.2f")")
+                .foregroundColor(details.color)
         }
     }
 }

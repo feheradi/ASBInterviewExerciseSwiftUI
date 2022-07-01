@@ -26,11 +26,37 @@ import Foundation
         return txn.debit != 0 ? debit : credit
     }
     
+    enum DateFormat {
+        case long
+        case justTime
+    }
+    
+    func formatDate(for str: String, dateFormat: DateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
+        if let date = dateFormatter.date(from: str) {
+            dateFormatter.locale = Locale(identifier: "en_NZ")
+            switch dateFormat {
+            case .long:
+                dateFormatter.dateStyle = .long
+                dateFormatter.timeStyle = .short
+            case .justTime:
+                dateFormatter.dateStyle = .none
+                dateFormatter.timeStyle = .short
+            }
+            let str = dateFormatter.string(from: date)
+            return str
+        } else {
+            return ""
+        }
+    }
+    
     // MARK: - Strings
     let s_NavTitle = "Transactions"
     let s_ID = "ID"
     let s_Summary = "Summary"
     let s_TxnDate = "Transaction Date"
+    let s_NZTime = "NZ Time"
     let s_Amount = "Amount"
     let s_GST = "GST (15%)"
     let s_Credit = "Credit"
