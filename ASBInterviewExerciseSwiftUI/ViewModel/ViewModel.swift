@@ -14,7 +14,7 @@ import Foundation
         self.restClient = restClient
     }
     
-    @Published var transactions = [Transaction]()
+    @Published var transactions = [String: [Transaction]]()
     
     func onAppear() {
         getData()
@@ -29,11 +29,17 @@ import Foundation
     enum DateFormat {
         case long
         case justTime
+        case justDate
     }
     
     func formatDate(for str: String, dateFormat: DateFormat) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
+        switch dateFormat {
+        case .long, .justTime:
+            dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
+        case .justDate:
+            dateFormatter.dateFormat = "yyyy'-'MM'-'dd"
+        }
         if let date = dateFormatter.date(from: str) {
             dateFormatter.locale = Locale(identifier: "en_NZ")
             switch dateFormat {
@@ -43,6 +49,9 @@ import Foundation
             case .justTime:
                 dateFormatter.dateStyle = .none
                 dateFormatter.timeStyle = .short
+            case .justDate:
+                dateFormatter.dateStyle = .long
+                dateFormatter.timeStyle = .none
             }
             let str = dateFormatter.string(from: date)
             return str
@@ -69,7 +78,7 @@ import Foundation
         Task.init {
             do {
                 let (data, _) = try await restClient.apiRequest(url)
-                parse(data)
+                self.transactions = getTransactions(data)
             } catch {
                 // TODO: - Handle error
                 print(error)
@@ -77,11 +86,18 @@ import Foundation
         }
     }
     
-    private func parse(_ data: Data) {
+    private func getTransactions(_ data: Data) -> [String: [Transaction]] {
+        guard let parsedTxns = parse(data) else { return [String: [Transaction]]() }
+        let sortedTxns = parsedTxns.sorted(by: { $0.transactionDate > $1.transactionDate })
+        let groupedTxns = Dictionary(grouping: sortedTxns) { String($0.transactionDate.prefix(10)) }
+        return groupedTxns
+    }
+    
+    private func parse(_ data: Data) -> [Transaction]? {
         guard let txns = try? JSONDecoder().decode([Transaction].self, from: data) else {
             // TODO: - Handle error
-            return
+            return nil
         }
-        transactions = txns
+        return txns
     }
 }

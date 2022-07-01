@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Transaction: Codable {
+struct Transaction: Codable, Hashable {
     var id: Int
     var transactionDate: String
     var summary: String
