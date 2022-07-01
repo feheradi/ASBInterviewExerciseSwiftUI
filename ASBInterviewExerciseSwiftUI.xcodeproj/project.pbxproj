@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE25EFF9286EFCE400A88B12 /* TransactionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25EFF8286EFCE400A88B12 /* TransactionDetail.swift */; };
+		CE25EFFB286F246000A88B12 /* RestClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25EFFA286F246000A88B12 /* RestClientMock.swift */; };
 		CE2762E6286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2762E5286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift */; };
 		CE2762EA286EF14E0076E94B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2762E9286EF14E0076E94B /* Assets.xcassets */; };
 		CE2762ED286EF14E0076E94B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2762EC286EF14E0076E94B /* Preview Assets.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		CE25EFF8286EFCE400A88B12 /* TransactionDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetail.swift; sourceTree = "<group>"; };
+		CE25EFFA286F246000A88B12 /* RestClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClientMock.swift; sourceTree = "<group>"; };
 		CE2762E2286EF14C0076E94B /* ASBInterviewExerciseSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASBInterviewExerciseSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2762E5286EF14C0076E94B /* ASBInterviewExerciseSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASBInterviewExerciseSwiftUIApp.swift; sourceTree = "<group>"; };
 		CE2762E9286EF14E0076E94B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE25EFFC286F246700A88B12 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				CE25EFFA286F246000A88B12 /* RestClientMock.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		CE2762D9286EF14C0076E94B = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 				CE27631C286EF2340076E94B /* View */,
 				CE27631D286EF2510076E94B /* ViewModel */,
 				CE2762E9286EF14E0076E94B /* Assets.xcassets */,
+				CE25EFFC286F246700A88B12 /* Test */,
 				CE2762EB286EF14E0076E94B /* Preview Content */,
 			);
 			path = ASBInterviewExerciseSwiftUI;
@@ -314,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE25EFFB286F246000A88B12 /* RestClientMock.swift in Sources */,
 				CE2762F7286EF14E0076E94B /* ASBInterviewExerciseSwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
