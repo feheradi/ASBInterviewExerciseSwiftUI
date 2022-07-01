@@ -22,15 +22,18 @@ struct ListRowView: View {
                     .foregroundColor(Color("BgColor"))
                 Text(txnTime)
                     .font(.caption)
+                    .accessibilityLabel("Transaction at: \(txnTime)")
             }.padding(.trailing, 5)
             
             Text(txn.summary)
+                .accessibilityLabel("Summary: \(txn.summary)")
             
             Spacer()
             
             Text("\(details.amount, specifier: "%.2f")")
                 .foregroundColor(details.color)
                 .fontWeight(.semibold)
+                .accessibilityLabel("Type: \(details.type), Amount:\(details.amount, specifier: "%.2f")")
         }.padding(.vertical, 5)
     }
 }
