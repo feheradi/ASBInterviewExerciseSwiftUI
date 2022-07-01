@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct ASBInterviewExerciseSwiftUIApp: App {
+    let restClient = RestClient()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(viewModel: ViewModel(restClient: restClient))
         }
     }
 }
