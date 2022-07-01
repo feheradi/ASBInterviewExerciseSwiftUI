@@ -30,6 +30,9 @@ struct MainView: View {
             .onAppear {
                 viewModel.onAppear()
             }
+            .alert(isPresented: $viewModel.showAlert) {
+                Alert(title: Text(viewModel.s_Error_Title), message: Text(viewModel.alertMessage))
+            }
         }
     }
 }

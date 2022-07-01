@@ -15,6 +15,12 @@ import Foundation
     }
     
     @Published var transactions = [String: [Transaction]]()
+    @Published var showAlert = false
+    @Published var alertMessage = "" {
+        didSet {
+            showAlert = true
+        }
+    }
     
     func onAppear() {
         getData()
@@ -70,6 +76,8 @@ import Foundation
     let s_GST = "GST (15%)"
     let s_Credit = "Credit"
     let s_Debit = "Debit"
+    let s_Error_Title = "Error"
+    let s_Error_Parsing = "Could not parse the data."
     
     // MARK: - Private properties & functions
     private let url = URL(string: "https://gist.githubusercontent.com/Josh-Ng/500f2716604dc1e8e2a3c6d31ad01830/raw/4d73acaa7caa1167676445c922835554c5572e82/test-data.json")!
@@ -80,8 +88,8 @@ import Foundation
                 let (data, _) = try await restClient.apiRequest(url)
                 self.transactions = getTransactions(data)
             } catch {
-                // TODO: - Handle error
-                print(error)
+                let error = error
+                handle(error: error)
             }
         }
     }
@@ -95,9 +103,13 @@ import Foundation
     
     private func parse(_ data: Data) -> [Transaction]? {
         guard let txns = try? JSONDecoder().decode([Transaction].self, from: data) else {
-            // TODO: - Handle error
+            alertMessage = s_Error_Parsing
             return nil
         }
         return txns
+    }
+    
+    private func handle(error: Error) {
+        self.alertMessage = error.localizedDescription
     }
 }
