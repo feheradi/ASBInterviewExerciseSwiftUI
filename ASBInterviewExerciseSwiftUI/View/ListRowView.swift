@@ -18,10 +18,10 @@ struct ListRowView: View {
         HStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 60, height: 40)
+                    .frame(width: 60, height: 30)
                     .foregroundColor(Color("BgColor"))
                 Text(txnTime)
-                    .font(.caption)
+                    .font(.system(size: 11))
                     .accessibilityLabel("Transaction at: \(txnTime)")
             }.padding(.trailing, 5)
             
@@ -34,6 +34,8 @@ struct ListRowView: View {
                 .foregroundColor(details.color)
                 .fontWeight(.semibold)
                 .accessibilityLabel("Type: \(details.type), Amount:\(details.amount, specifier: "%.2f")")
-        }.padding(.vertical, 5)
+        }
+        .font(.system(size: 14))
+        .padding(.vertical, 5)
     }
 }
