@@ -26,6 +26,10 @@ import Foundation
         getData()
     }
     
+    func refresh() {
+        getData()
+    }
+    
     func getDetails(for txn: Transaction) -> TransactionDetail {        
         let credit = TransactionDetail(amount: txn.credit, gst: txn.credit * 0.15, type: s_Credit, color: .green)
         let debit = TransactionDetail(amount: txn.debit, gst: txn.debit * 0.15, type: s_Debit, color: .red)

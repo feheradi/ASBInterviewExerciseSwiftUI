@@ -33,6 +33,9 @@ struct MainView: View {
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text(viewModel.s_Error_Title), message: Text(viewModel.alertMessage))
             }
+            .refreshable {
+                viewModel.refresh()
+            }
         }
     }
 }
