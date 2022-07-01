@@ -8,9 +8,9 @@
 import Foundation
 
 struct Transaction: Codable, Hashable {
-    var id: Int
-    var transactionDate: String
-    var summary: String
-    var debit: Double
-    var credit: Double
+    let id: Int
+    let transactionDate: String
+    let summary: String
+    let debit: Double
+    let credit: Double
 }
